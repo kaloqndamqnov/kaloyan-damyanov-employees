@@ -1,0 +1,7 @@
+default_source: drupalorg_jsonapi
+enabled_sources:
+  recommended:
+    uri: 'https://git.drupalcode.org/api/v4/projects/167158/repository/files/recommended.yml/raw?ref=HEAD'
+  drupalorg_jsonapi: {  }
+allow_ui_install: true
+max_selections: 1

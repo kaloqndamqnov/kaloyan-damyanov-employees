@@ -1,0 +1,27 @@
+uuid: bc00d02c-8094-402f-8315-0cc344bcc309
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - drupal_cms_olivero
+_core:
+  default_config_hash: WTl3U7fRuBpyEu0aKhp32saPddKEZ5zYKbbrfPJ2CMw
+id: drupal_cms_olivero_footer_menu
+theme: drupal_cms_olivero
+region: footer_top
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }
