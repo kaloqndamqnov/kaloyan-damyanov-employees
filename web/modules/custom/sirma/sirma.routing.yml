@@ -1,0 +1,8 @@
+sirma.hello:
+  path: '/sirma/hello'
+  defaults:
+    _controller: '\Drupal\sirma\Controller\SirmaController::hello'
+    _title: 'Sirma Hello'
+  requirements:
+    _permission: 'access content'
+

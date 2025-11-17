@@ -1,0 +1,6 @@
+name: Sirma
+type: module
+description: 'Clean base module for Drupal 11.'
+core_version_requirement: ^11
+package: Custom
+version: 1.0.0
