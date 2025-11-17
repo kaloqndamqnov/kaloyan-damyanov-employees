@@ -30,3 +30,8 @@ lando info
 ```
 
 URL: https://docs.lando.dev/plugins/drupal/getting-started.html
+
+```bash
+drush cim --source=../config
+drush cim --destination=../config
+```
