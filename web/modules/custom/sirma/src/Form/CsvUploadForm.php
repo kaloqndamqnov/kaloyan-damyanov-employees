@@ -26,6 +26,8 @@ class CsvUploadForm extends FormBase
    */
   public function buildForm(array $form, FormStateInterface $form_state)
   {
+    // Required for file uploads.
+    $form['#attributes']['enctype'] = 'multipart/form-data';
 
     $form['csv_file'] = [
       '#type' => 'managed_file',
@@ -33,6 +35,9 @@ class CsvUploadForm extends FormBase
       '#upload_location' => 'public://csv_uploads/',
       '#description' => $this->t('Format: EmpID,ProjectID,DateFrom,DateTo'),
       '#required' => TRUE,
+      '#upload_validators' => [
+        'FileExtension' => ['csv'],
+      ],
     ];
 
     $form['submit'] = [
