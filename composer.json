@@ -39,6 +39,7 @@
         "drupal/core-recipe-unpack": "^11.2.4",
         "drupal/core-recommended": "^11.2.4",
         "drupal/core-vendor-hardening": "^11.2.4",
+        "drupal/csv_importer": "^2.1",
         "drupal/dashboard": "^2",
         "drupal/drupal_cms_helper": "^1.2",
         "drupal/drupal_cms_olivero": "^1.2.7",

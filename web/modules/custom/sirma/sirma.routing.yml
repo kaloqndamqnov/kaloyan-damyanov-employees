@@ -7,3 +7,11 @@ sirma.report:
     _permission: 'access content'
   options:
     no_cache: TRUE   
+
+sirma.csv_upload_form:
+  path: '/admin/project-assignments/upload'
+  defaults:
+    _form: '\Drupal\sirma\Form\CsvUploadForm'
+    _title: 'Upload Project Assignments CSV'
+  requirements:
+    _permission: 'administer nodes'

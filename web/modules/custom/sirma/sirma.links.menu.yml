@@ -1,0 +1,13 @@
+sirma.report:
+  title: 'Employees Worked Together'
+  description: 'Displays report of employees who worked together.'
+  route_name: sirma.report
+  parent: system.admin
+  weight: 0
+
+sirma.csv_upload_form:
+  title: 'Upload Project Assignments CSV'
+  description: 'Upload CSV to create project assignment nodes.'
+  route_name: sirma.csv_upload_form
+  parent: system.admin
+  weight: 0

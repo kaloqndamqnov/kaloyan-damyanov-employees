@@ -11,7 +11,10 @@ dependencies:
   module:
     - datetime
     - node
+    - rest
+    - serialization
     - user
+    - views_data_export
 id: project_assignments_export
 label: 'Project Assignments Export'
 module: views
@@ -448,6 +451,57 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_date_from'
+        - 'config:field.storage.node.field_date_to'
+        - 'config:field.storage.node.field_employee'
+        - 'config:field.storage.node.field_project'
+  data_export_1:
+    id: data_export_1
+    display_title: 'Data export'
+    display_plugin: data_export
+    position: 2
+    display_options:
+      title: 'Project Assignments - export '
+      style:
+        type: data_export
+        options:
+          formats: {  }
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+            utf8_bom: '0'
+            use_serializer_encode_only: false
+            output_header: true
+          xml_settings:
+            encoding: UTF-8
+            root_node_name: response
+            item_node_name: item
+            format_output: false
+      defaults:
+        title: false
+        relationships: false
+      relationships: {  }
+      display_extenders: {  }
+      path: admin/test
+      filename: ''
+      automatic_download: false
+      store_in_public_file_directory: null
+      custom_redirect_path: false
+      redirect_to_display: none
+      include_query_params: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
         - 'user.node_grants:view'
         - user.permissions
       tags:
