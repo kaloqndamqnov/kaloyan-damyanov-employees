@@ -103,9 +103,8 @@ class CsvUploadForm extends FormBase
 
         list($empId, $projectId, $dateFrom, $dateTo) = $row;
 
-        $dateFrom = trim($dateFrom);
-        $dateTo = trim($dateTo);
-        $dateTo = (strtoupper($dateTo) === 'NULL' || $dateTo === '') ? NULL : $dateTo;
+        $dateFrom = $this->convertDate($dateFrom);
+        $dateTo   = $this->convertDate($dateTo);
 
         if (!is_numeric($empId) || !is_numeric($projectId)) {
           \Drupal::messenger()->addWarning("Invalid employee/project ID at line {$rowNumber}");
@@ -132,5 +131,31 @@ class CsvUploadForm extends FormBase
     } else {
       \Drupal::messenger()->addError($this->t('Could not open the uploaded CSV file.'));
     }
+  }
+
+  private function convertDate($value)
+  {
+    $value = trim($value);
+
+    // Handle empty or NULL values
+    if ($value === '' || strtoupper($value) === 'NULL') {
+      return NULL;
+    }
+
+    try {
+      // Create a DateTime from d-m-Y format
+      $date = \DateTime::createFromFormat('d-m-Y', $value);
+
+      // Validate date (checks for parsing errors)
+      $errors = \DateTime::getLastErrors();
+      if ($errors['warning_count'] > 0 || $errors['error_count'] > 0) {
+        return NULL;
+      }
+    } catch (\Exception $e) {
+      return NULL;
+    }
+
+    // For DATE field → return Y-m-d
+    return $date->format('Y-m-d');
   }
 }
