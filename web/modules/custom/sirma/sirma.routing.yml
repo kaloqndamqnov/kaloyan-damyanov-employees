@@ -1,8 +1,9 @@
-sirma.hello:
-  path: '/sirma/hello'
+sirma.report:
+  path: '/custom-report'
   defaults:
-    _controller: '\Drupal\sirma\Controller\SirmaController::hello'
-    _title: 'Sirma Hello'
+    _controller: '\Drupal\sirma\Controller\SirmaController::report'
+    _title: 'Employees Worked Together'
   requirements:
     _permission: 'access content'
-
+  options:
+    no_cache: TRUE   

@@ -34,3 +34,21 @@ function sirma_project_assignment_validate(&$form, FormStateInterface $form_stat
         );
     }
 }
+
+
+
+/**
+ * Implements hook_theme().
+ */
+function sirma_theme()
+{
+    return [
+        'employee_pairs_report' => [
+            'variables' => [
+                'pairs' => [],
+                'form'  => NULL,
+            ],
+            'template' => 'employee-pairs-report',
+        ],
+    ];
+}

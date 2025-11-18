@@ -1,0 +1,68 @@
+<h2>Employees Who Worked Together</h2>
+
+<form action="" method="post">
+  {{ form.form_build_id }}
+  {{ form.form_token }}
+  {{ form.form_id }}
+
+  <table class="employee-pairs-table">
+    <thead>
+      <tr>
+        <th>Select</th>
+        <th>Employee ID 1</th>
+        <th>Employee ID 2</th>
+        <th>Project ID</th>
+        <th>Days worked together</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for key, row in pairs %}
+        <tr>
+          <td>{{ form.pairs[key] }}</td>
+          <td>{{ row.employee_a }}</td>
+          <td>{{ row.employee_b }}</td>
+          <td>{{ row.project }}</td>
+          <td>{{ row.days }}</td>
+        </tr>
+      {% else %}
+        <tr>
+          <td colspan="5">No employee pairs found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="export-actions">
+    {{ form.export }}
+  </div>
+</form>
+
+
+
+
+{# <table class="employee-pairs-table">
+  <thead>
+    <tr>
+      <th>Employee ID 1</th>
+      <th>Employee ID 2</th>
+      <th>Project ID</th>
+      <th>Days worked together</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for row in pairs %}
+      <tr>
+        <td>{{ row.employee_a }}</td>
+        <td>{{ row.employee_b }}</td>
+        <td>{{ row.project }}</td>
+        <td>{{ row.days }}</td>
+      </tr>
+    {% else %}
+      <tr>
+        <td colspan="4">No employee pairs found.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table> #}
