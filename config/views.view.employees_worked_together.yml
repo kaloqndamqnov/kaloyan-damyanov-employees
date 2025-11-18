@@ -1,0 +1,105 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - views
+id: employees_worked_together
+label: 'Employees Worked Together'
+module: views
+description: 'Shows pairs of employees who worked together on the same project, with overlapping days.'
+tag: ''
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Master
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Employees Worked Together'
+      query:
+        type: views_query
+      fields:
+
+        employee_1:
+          id: employee_1
+          table: node__field_employee
+          field: field_employee_target_id
+          relationship: none
+          label: 'Employee ID 1'
+
+        employee_2:
+          id: employee_2
+          table: node__field_employee
+          field: field_employee_target_id
+          relationship: rel_b
+          label: 'Employee ID 2'
+
+        project_id:
+          id: project_id
+          table: node__field_project
+          field: field_project_target_id
+          relationship: none
+          label: 'Project ID'
+
+        days_worked:
+          id: days_worked
+          table: views
+          field: custom
+          relationship: none
+          label: 'Days worked'
+          alter:
+            alter_text: true
+            text: |
+              {% set from1 = date(field_date_from_1) %}
+              {% set to1 = date(field_date_to_1 ?: "now") %}
+              {% set from2 = date(field_date_from_2) %}
+              {% set to2 = date(field_date_to_2 ?: "now") %}
+
+              {% set start = from1 > from2 ? from1 : from2 %}
+              {% set end = to1 < to2 ? to1 : to2 %}
+
+              {% if start <= end %}
+                {{ ((end|date('U') - start|date('U')) / 86400) | round(0, 'floor') }}
+              {% else %}
+                0
+              {% endif %}
+
+      relationships:
+        rel_b:
+          id: rel_b
+          table: node_field_data
+          field: nid
+          relationship: none
+          label: 'Self join B'
+          required: true
+          entity_type: node
+          plugin_id: standard
+          join:
+            type: LEFT
+            table: node_field_data
+            field: nid
+            left_table: node_field_data
+            left_field: nid
+
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            project_assignment: project_assignment
+          plugin_id: bundle
+
+      style:
+        type: table
+
+  page:
+    id: page
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      path: employees-worked-together

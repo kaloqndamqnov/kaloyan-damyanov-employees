@@ -1,6 +1,7 @@
 _core:
   default_config_hash: 4GIX5Esnc_umpXUBj4IIocRX7Mt5fPhm4AgXfE3E56E
 module:
+  auto_entitylabel: -100
   announcements_feed: 0
   automated_cron: 0
   automatic_updates: 0
@@ -17,6 +18,7 @@ module:
   content_moderation: 0
   contextual: 0
   crop: 0
+  csv_serialization: 0
   dashboard: 0
   datetime: 0
   dblog: 0
@@ -71,9 +73,11 @@ module:
   redirect: 0
   redirect_404: 0
   responsive_image: 0
+  rest: 0
   sam: 0
   scheduler: 0
   scheduler_content_moderation_integration: 0
+  serialization: 0
   sirma: 0
   svg_image: 0
   symfony_mailer_lite: 0
@@ -86,6 +90,7 @@ module:
   trash: 0
   update: 0
   user: 0
+  views_data_export: 0
   views_ui: 0
   workflows: 0
   eca_form: 1

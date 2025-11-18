@@ -1,0 +1,30 @@
+uuid: c6326b86-a36e-4641-bac4-c9b96ac9878e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.project.field_description
+    - field.field.node.project.field_project_name
+    - node.type.project
+  module:
+    - user
+id: node.project.card
+targetEntityType: node
+bundle: project
+mode: card
+content:
+  field_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_project_name: true

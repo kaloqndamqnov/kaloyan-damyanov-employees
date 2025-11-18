@@ -1,0 +1,70 @@
+uuid: dd21a80c-a5a3-487d-8455-a46bb98ba701
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.project_assignment.field_date_from
+    - field.field.node.project_assignment.field_date_to
+    - field.field.node.project_assignment.field_employee
+    - field.field.node.project_assignment.field_project
+    - node.type.project_assignment
+  module:
+    - datetime
+    - tagify
+id: node.project_assignment.default
+targetEntityType: node
+bundle: project_assignment
+mode: default
+content:
+  field_date_from:
+    type: datetime_default
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_date_to:
+    type: datetime_default
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_employee:
+    type: tagify_entity_reference_autocomplete_widget
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      placeholder: ''
+      suggestions_dropdown: 1
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
+    third_party_settings: {  }
+  field_project:
+    type: tagify_entity_reference_autocomplete_widget
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      placeholder: ''
+      suggestions_dropdown: 1
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  moderation_state: true
+  path: true
+  promote: true
+  publish_on: true
+  publish_state: true
+  status: true
+  sticky: true
+  title: true
+  uid: true
+  unpublish_on: true
+  unpublish_state: true
+  url_redirects: true

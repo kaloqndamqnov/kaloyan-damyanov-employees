@@ -1,0 +1,10 @@
+status: 1
+pattern: '[node:field_employee:entity:field_full_name] - [node:field_project:entity:field_project_name]'
+escape: false
+preserve_titles: false
+save: false
+chunk: 50
+dependencies:
+  config:
+    - node.type.project_assignment
+new_content_behavior: 0

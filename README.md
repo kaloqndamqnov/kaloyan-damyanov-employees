@@ -33,7 +33,7 @@ URL: https://docs.lando.dev/plugins/drupal/getting-started.html
 
 ```bash
 drush cim --source=../config
-drush cim --destination=../config
+drush cex --destination=../config
 drush sql:dump --result-file=../dump.sql
 drush sql:cli < dump.sql
 ```

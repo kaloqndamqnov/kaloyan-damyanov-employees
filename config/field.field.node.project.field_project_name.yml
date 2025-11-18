@@ -1,0 +1,19 @@
+uuid: 2eeb1afd-7605-413b-a2f9-8c870f64d3bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_name
+    - node.type.project
+id: node.project.field_project_name
+field_name: field_project_name
+entity_type: node
+bundle: project
+label: 'Project Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

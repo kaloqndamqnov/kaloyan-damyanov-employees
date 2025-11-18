@@ -1,0 +1,43 @@
+uuid: addaa37d-4989-49a4-9cd7-1da059052f5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.employee.field_full_name
+    - field.field.node.employee.field_job_title
+    - field.field.node.employee.field_photo
+    - node.type.employee
+  module:
+    - user
+id: node.employee.default
+targetEntityType: node
+bundle: employee
+mode: default
+content:
+  field_full_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_job_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_photo:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  links: true

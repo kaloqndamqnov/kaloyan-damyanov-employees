@@ -1,0 +1,10 @@
+status: 1
+pattern: '[node:field_full_name]-[node:field_job_title]'
+escape: false
+preserve_titles: false
+save: false
+chunk: 50
+dependencies:
+  config:
+    - node.type.employee
+new_content_behavior: 0

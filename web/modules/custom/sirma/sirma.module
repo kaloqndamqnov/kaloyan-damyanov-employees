@@ -1,0 +1,36 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityMalformedException;
+use Drupal\node\NodeInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\Form\FormStateInterface;
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ * Runs ONLY on the Project Assignment edit form.
+ */
+function sirma_form_node_project_assignment_form_alter(&$form, FormStateInterface $form_state, $form_id)
+{
+    // Add custom validation handler.
+    $form['#validate'][] = 'sirma_project_assignment_validate';
+}
+
+
+/**
+ * Custom date validation.
+ */
+function sirma_project_assignment_validate(&$form, FormStateInterface $form_state)
+{
+
+    $date_from = $form_state->getValue('field_date_from')[0]['value'] ?? NULL;
+    $date_to   = $form_state->getValue('field_date_to')[0]['value'] ?? NULL;
+
+    if ($date_from && $date_to && $date_to < $date_from) {
+        $form_state->setErrorByName(
+            'field_date_to',
+            new TranslatableMarkup('Date To must be after or equal to Date From.')
+        );
+    }
+}

@@ -1,0 +1,56 @@
+uuid: 863a5fbe-298c-413e-a7ae-5a48778f206c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.project_assignment.field_date_from
+    - field.field.node.project_assignment.field_date_to
+    - field.field.node.project_assignment.field_employee
+    - field.field.node.project_assignment.field_project
+    - node.type.project_assignment
+  module:
+    - datetime
+    - user
+id: node.project_assignment.default
+targetEntityType: node
+bundle: project_assignment
+mode: default
+content:
+  field_date_from:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_date_to:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_employee:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_project:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  links: true

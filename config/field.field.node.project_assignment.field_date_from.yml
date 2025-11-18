@@ -1,0 +1,21 @@
+uuid: 4f6ba528-76b4-4d36-8e42-231cceba4866
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_from
+    - node.type.project_assignment
+  module:
+    - datetime
+id: node.project_assignment.field_date_from
+field_name: field_date_from
+entity_type: node
+bundle: project_assignment
+label: 'Date from'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
